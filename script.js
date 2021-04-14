@@ -17,8 +17,9 @@ function logIn() {
     // CREATE A POST TO BACKEND
     fetch("http://localhost:3000/users", {method: "post", headers: {"Content-type": "application/json"}, body: JSON.stringify(user)})
     .then(resp => resp.json())
-    .then(data => {
-        console.log(data);
+    .then(user => {
+        console.log("Användarid: ", user);
+        localStorage.setItem("User-id", user);
     });
 };
 
